@@ -3,3 +3,5 @@
 ## SETUP
 
 ## INSTALLATION PROCESS 
+
+- yarn install
