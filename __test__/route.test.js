@@ -24,5 +24,14 @@ describe('User API', () => {
         expect(res.statusCode).toEqual(201);
         expect(res.body).toHaveProperty('user');
     })
+
+    it('should update a user', async () => {
+        const res = await request(app).put('/api/v1/users/1').send({
+            firstName: 'John2',
+            lastName: 'Doe2',
+            email: 'johndoe2@gmail.com',
+            password: 'password2',
+        });
+    })
 })
 

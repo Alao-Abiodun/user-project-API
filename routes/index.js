@@ -9,5 +9,6 @@ router.get('/', (req, res) => res.send('This is root!'))
 router.post('/users', controllers.createUser);
 router.get('/users', controllers.fetchAllUsers);
 router.get('/users/:id', controllers.fetchAUser);
+router.put('/users/:id', controllers.changeAUser);
 
 module.exports = router

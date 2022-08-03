@@ -51,8 +51,29 @@ const fetchAUser = async (req, res) => {
     }
 }
 
+const changeAUser = async (req, res) => {
+    try {
+        const user = await User.update(req.body, {
+            where: {
+                id: req.params.id,
+            },
+        });
+        if (user) {
+            return res.status(200).json({
+                user,
+            });
+        }
+        return res.status(404).json({
+            error: 'User not found',
+        });    
+    } catch (error) {
+        return res.status(500).json({ error: error.message })
+    }
+}
+
 module.exports = {
-    createUser
-    , fetchAllUsers,
-    fetchAUser
+    createUser,
+    fetchAllUsers,
+    fetchAUser,
+    changeAUser
 }
