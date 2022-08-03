@@ -10,5 +10,6 @@ router.post('/users', controllers.createUser);
 router.get('/users', controllers.fetchAllUsers);
 router.get('/users/:id', controllers.fetchAUser);
 router.put('/users/:id', controllers.changeAUser);
+router.delete('/users/:id', controllers.removeAUser);
 
 module.exports = router

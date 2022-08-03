@@ -32,6 +32,21 @@ describe('User API', () => {
             email: 'johndoe2@gmail.com',
             password: 'password2',
         });
+        expect(res.statusCode).toEqual(200);
+        expect(res.body).toHaveProperty('user');
     })
+
+    it('should delete a user', async () => {
+        const res = await request(app).delete('/api/v1/users/1');
+        expect(res.statusCode).toEqual(204);
+    })
+    it('should return an error if user does not exist', async () => {
+        const res = await request(app).delete('/api/v1/users/100');
+        expect(res.statusCode).toEqual(404);
+        expect(res.body).toHaveProperty('error');
+    })
+
+    
+
 })
 
